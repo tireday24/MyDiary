@@ -122,8 +122,9 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
                 
             }
             
-            
         }
+        
+        hud.dismiss(animated: true)
         
     }
     
@@ -147,6 +148,7 @@ extension SearchViewController: UISearchBarDelegate {
         }
         
         mainView.endEditing(true)
+        hud.dismiss(animated: true)
 }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
