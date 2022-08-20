@@ -32,7 +32,41 @@
 		818B448328AF6BF4007C50DF /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 818B448228AF6BF4007C50DF /* Then */; };
 		818B448C28AF9D96007C50DF /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B448B28AF9D96007C50DF /* APIManager.swift */; };
 		818B449228AFC2D6007C50DF /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B449128AFC2D6007C50DF /* SearchCollectionViewCell.swift */; };
+		818BC3F728B095D200C590A8 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818BC3F628B095D200C590A8 /* Extension + UIViewController.swift */; };
+		818BC43128B09BC500C590A8 /* MyDairyProjectFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818BC42D28B09BB800C590A8 /* MyDairyProjectFrameWork.framework */; };
+		818BC43228B09BC500C590A8 /* MyDairyProjectFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 818BC42D28B09BB800C590A8 /* MyDairyProjectFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		818BC42C28B09BB800C590A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 818BC42728B09BB800C590A8 /* MyDairyProjectFrameWork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 818BC40228B09ABF00C590A8;
+			remoteInfo = MyDairyProjectFrameWork;
+		};
+		818BC42E28B09BB800C590A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 818BC42728B09BB800C590A8 /* MyDairyProjectFrameWork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 818BC40C28B09ABF00C590A8;
+			remoteInfo = MyDairyProjectFrameWorkTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		818BC43328B09BC500C590A8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				818BC43228B09BC500C590A8 /* MyDairyProjectFrameWork.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		811B212F28B0431C009A9297 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -55,6 +89,8 @@
 		818B446C28AF6704007C50DF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		818B448B28AF9D96007C50DF /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		818B449128AFC2D6007C50DF /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		818BC3F628B095D200C590A8 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
+		818BC42728B09BB800C590A8 /* MyDairyProjectFrameWork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MyDairyProjectFrameWork.xcodeproj; path = ../MyDairyProjectFrameWork/MyDairyProjectFrameWork.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +101,7 @@
 				818B447728AF685C007C50DF /* Alamofire in Frameworks */,
 				818B447428AF684D007C50DF /* Kingfisher in Frameworks */,
 				818B447A28AF6866007C50DF /* SwiftyJSON in Frameworks */,
+				818BC43128B09BC500C590A8 /* MyDairyProjectFrameWork.framework in Frameworks */,
 				818B448328AF6BF4007C50DF /* Then in Frameworks */,
 				818B447D28AF6873007C50DF /* Toast in Frameworks */,
 				818B448028AF6884007C50DF /* JGProgressHUD in Frameworks */,
@@ -79,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				811B213228B043ED009A9297 /* ReuseIdentifier.swift */,
+				818BC3F628B095D200C590A8 /* Extension + UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -86,11 +124,13 @@
 		818B443B28AF663E007C50DF = {
 			isa = PBXGroup;
 			children = (
+				818BC42728B09BB800C590A8 /* MyDairyProjectFrameWork.xcodeproj */,
 				818B446028AF667C007C50DF /* .gitignore */,
 				811B213128B043DA009A9297 /* Extension */,
 				818B448A28AF9D86007C50DF /* APIManager */,
 				818B444628AF663E007C50DF /* MyDiaryProject */,
 				818B444528AF663E007C50DF /* Products */,
+				818BC43028B09BC500C590A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,6 +197,22 @@
 			path = APIManager;
 			sourceTree = "<group>";
 		};
+		818BC42828B09BB800C590A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				818BC42D28B09BB800C590A8 /* MyDairyProjectFrameWork.framework */,
+				818BC42F28B09BB800C590A8 /* MyDairyProjectFrameWorkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		818BC43028B09BC500C590A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,6 +223,7 @@
 				818B444028AF663E007C50DF /* Sources */,
 				818B444128AF663E007C50DF /* Frameworks */,
 				818B444228AF663E007C50DF /* Resources */,
+				818BC43328B09BC500C590A8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -221,12 +278,35 @@
 			);
 			productRefGroup = 818B444528AF663E007C50DF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 818BC42828B09BB800C590A8 /* Products */;
+					ProjectRef = 818BC42728B09BB800C590A8 /* MyDairyProjectFrameWork.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				818B444328AF663E007C50DF /* MyDiaryProject */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		818BC42D28B09BB800C590A8 /* MyDairyProjectFrameWork.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MyDairyProjectFrameWork.framework;
+			remoteRef = 818BC42C28B09BB800C590A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		818BC42F28B09BB800C590A8 /* MyDairyProjectFrameWorkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MyDairyProjectFrameWorkTests.xctest;
+			remoteRef = 818BC42E28B09BB800C590A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		818B444228AF663E007C50DF /* Resources */ = {
@@ -247,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				818BC3F728B095D200C590A8 /* Extension + UIViewController.swift in Sources */,
 				818B446D28AF6704007C50DF /* MainView.swift in Sources */,
 				818B446628AF66D3007C50DF /* SearchViewController.swift in Sources */,
 				818B449228AFC2D6007C50DF /* SearchCollectionViewCell.swift in Sources */,

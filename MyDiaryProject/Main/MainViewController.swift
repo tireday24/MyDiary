@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import MyDairyProjectFrameWork
+
 import SnapKit
 import Then
+
 
 class MainViewController: BaseViewController {
     var mainView = MainView()
@@ -33,10 +36,9 @@ class MainViewController: BaseViewController {
     }
     
     @objc func diaryImageButtonClicked() {
-        let vc = SearchViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
+        transitionViewController(storyboard: "Main", vc: SearchViewController(), transition: .present) { _ in
+            
+        }
     }
     
     

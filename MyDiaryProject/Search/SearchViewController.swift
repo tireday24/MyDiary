@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MyDairyProjectFrameWork
 
 import Alamofire
 import SwiftyJSON
