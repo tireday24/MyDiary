@@ -35,6 +35,7 @@ class SearchViewController: BaseViewController {
     
     override func configure() {
         let navi = navigationItem
+        navi.title = "이미지를 선택해주세요!"
         navi.rightBarButtonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(selectButtonClicked))
         navi.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(backButtonClicked))
         
