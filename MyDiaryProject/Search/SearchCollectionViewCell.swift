@@ -36,5 +36,15 @@ class SearchCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                self.searchImageView.backgroundColor = .systemBlue
+            } else {
+                self.searchImageView.backgroundColor = .white
+            }
+        }
+    }
+    
 
 }
