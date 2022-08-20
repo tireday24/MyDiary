@@ -27,4 +27,6 @@ class BaseCollectionViewCell: UICollectionViewCell {
     func setConstraints() {
         
     }
+    
+    
 }

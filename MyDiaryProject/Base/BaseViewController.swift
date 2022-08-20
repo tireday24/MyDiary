@@ -14,11 +14,22 @@ class BaseViewController: UIViewController {
         
         view.backgroundColor = .white
         configure()
+        tapGesture()
     }
     
     //Configure
     func configure() {
         
+    }
+    
+    func tapGesture() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
+        tapGestureRecognizer.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func viewTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     //Alert
