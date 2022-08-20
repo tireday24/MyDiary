@@ -12,7 +12,7 @@ import SnapKit
 import Then
 
 
-class MainViewController: BaseViewController {
+class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDelegate {
     var mainView = MainView()
     
     override func loadView() {
@@ -23,7 +23,9 @@ class MainViewController: BaseViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(searchImageNotificationObserver(notification:)), name: .searchImage, object: nil)
+
     }
+    
     
     @objc func searchImageNotificationObserver(notification: NSNotification) {
         if let image = notification.userInfo?["image"] as? String {

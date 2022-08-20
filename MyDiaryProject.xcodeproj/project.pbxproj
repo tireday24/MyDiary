@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		811B213028B0431C009A9297 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811B212F28B0431C009A9297 /* BaseCollectionViewCell.swift */; };
-		811B213328B043ED009A9297 /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811B213228B043ED009A9297 /* ReuseIdentifier.swift */; };
+		8166F02A28B1A13E00E61B30 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166F02928B1A13E00E61B30 /* TextField.swift */; };
 		818B444828AF663E007C50DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B444728AF663E007C50DF /* AppDelegate.swift */; };
 		818B444A28AF663E007C50DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B444928AF663E007C50DF /* SceneDelegate.swift */; };
 		818B444C28AF663E007C50DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B444B28AF663E007C50DF /* ViewController.swift */; };
@@ -35,6 +35,7 @@
 		818BC3F728B095D200C590A8 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818BC3F628B095D200C590A8 /* Extension + UIViewController.swift */; };
 		818BC43128B09BC500C590A8 /* MyDairyProjectFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818BC42D28B09BB800C590A8 /* MyDairyProjectFrameWork.framework */; };
 		818BC43228B09BC500C590A8 /* MyDairyProjectFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 818BC42D28B09BB800C590A8 /* MyDairyProjectFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		818BC43628B0A04000C590A8 /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818BC43528B0A04000C590A8 /* ReuseIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +71,7 @@
 
 /* Begin PBXFileReference section */
 		811B212F28B0431C009A9297 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
-		811B213228B043ED009A9297 /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
+		8166F02928B1A13E00E61B30 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		818B444428AF663E007C50DF /* MyDiaryProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDiaryProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		818B444728AF663E007C50DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		818B444928AF663E007C50DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		818B449128AFC2D6007C50DF /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		818BC3F628B095D200C590A8 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		818BC42728B09BB800C590A8 /* MyDairyProjectFrameWork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MyDairyProjectFrameWork.xcodeproj; path = ../MyDairyProjectFrameWork/MyDairyProjectFrameWork.xcodeproj; sourceTree = "<group>"; };
+		818BC43528B0A04000C590A8 /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +117,18 @@
 		811B213128B043DA009A9297 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				811B213228B043ED009A9297 /* ReuseIdentifier.swift */,
+				818BC43528B0A04000C590A8 /* ReuseIdentifier.swift */,
 				818BC3F628B095D200C590A8 /* Extension + UIViewController.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		8166F02628B1A12F00E61B30 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8166F02928B1A13E00E61B30 /* TextField.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		818B443B28AF663E007C50DF = {
@@ -163,6 +173,7 @@
 		818B445B28AF6644007C50DF /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				8166F02628B1A12F00E61B30 /* UI */,
 				818B445C28AF6659007C50DF /* BaseViewController.swift */,
 				818B445E28AF6661007C50DF /* BaseView.swift */,
 				811B212F28B0431C009A9297 /* BaseCollectionViewCell.swift */,
@@ -330,6 +341,7 @@
 				818BC3F728B095D200C590A8 /* Extension + UIViewController.swift in Sources */,
 				818B446D28AF6704007C50DF /* MainView.swift in Sources */,
 				818B446628AF66D3007C50DF /* SearchViewController.swift in Sources */,
+				8166F02A28B1A13E00E61B30 /* TextField.swift in Sources */,
 				818B449228AFC2D6007C50DF /* SearchCollectionViewCell.swift in Sources */,
 				818B446828AF66DC007C50DF /* SearchView.swift in Sources */,
 				818B446328AF6691007C50DF /* APIKEY.swift in Sources */,
@@ -340,8 +352,8 @@
 				818B445F28AF6661007C50DF /* BaseView.swift in Sources */,
 				818B444828AF663E007C50DF /* AppDelegate.swift in Sources */,
 				811B213028B0431C009A9297 /* BaseCollectionViewCell.swift in Sources */,
+				818BC43628B0A04000C590A8 /* ReuseIdentifier.swift in Sources */,
 				818B444A28AF663E007C50DF /* SceneDelegate.swift in Sources */,
-				811B213328B043ED009A9297 /* ReuseIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

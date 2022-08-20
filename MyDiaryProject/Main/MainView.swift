@@ -27,24 +27,20 @@ class MainView: BaseView {
         $0.titleLabel?.font = UIFont(name: "systemFont" ,size: 14)
     }
     
-    let imgaeTextField = UITextField().then {
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.black.cgColor
+    let imgaeTextField = TextFieldSet().then {
         $0.placeholder = " 제목을 입력해주세요"
-        $0.backgroundColor = .clear
     }
     
-    let subTextField = UITextField().then {
+    let subTextField = TextFieldSet().then {
         $0.placeholder = " 부제목을 입력해주세요"
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.black.cgColor
-        $0.backgroundColor = .clear
+       
     }
     
     let contentTextView = UITextView().then {
         $0.textColor = .black
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 1
+        
     }
     
     override init(frame: CGRect) {
