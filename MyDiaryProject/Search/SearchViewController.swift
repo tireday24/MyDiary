@@ -63,6 +63,17 @@ class SearchViewController: BaseViewController {
 
     }
     
+    func uploadImage(query: String) {
+        APIManager.shared.requsetAPI(query: query, startPage: startPage) { totalCount, list in
+            self.totalCount = totalCount
+            self.searchImageList.append(contentsOf: list)
+            
+            DispatchQueue.main.async {
+                self.mainView.imageCollectionView.reloadData()
+            }
+        }
+    }
+    
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -106,16 +117,12 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
                 
                 hud.show(in: mainView)
                 
-                APIManager.shared.requsetAPI(query: mainView.imageSearchBar.text ?? "cat", startPage: startPage) { totalCount, list in
-                    self.totalCount = totalCount
-                    self.searchImageList.append(contentsOf: list)
-                    
-                    DispatchQueue.main.async {
-                        self.mainView.imageCollectionView.reloadData()
-                    }
-                }
+                uploadImage(query: mainView.imageSearchBar.text ?? "cat")
+                
                 
             }
+            
+            
         }
         
     }
@@ -135,15 +142,7 @@ extension SearchViewController: UISearchBarDelegate {
             
             startPage = 1
             
-            APIManager.shared.requsetAPI(query: text, startPage: startPage) { totalCount, list in
-                self.totalCount = totalCount
-                self.searchImageList.append(contentsOf: list)
-                
-                DispatchQueue.main.async {
-                    self.mainView.imageCollectionView.reloadData()
-                    self.hud.dismiss(animated: true)
-                }
-            }
+            uploadImage(query: text)
             
         }
         
