@@ -40,7 +40,10 @@ class MainView: BaseView {
         $0.textColor = .black
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 1
-        
+    }
+    
+    let sampleButton = UIButton().then {
+        $0.backgroundColor = .green
     }
     
     override init(frame: CGRect) {
@@ -52,7 +55,7 @@ class MainView: BaseView {
     }
     
     override func configureUI() {
-        [diaryImageView, diaryImageButton, imgaeTextField, subTextField, contentTextView].forEach {
+        [diaryImageView, diaryImageButton, imgaeTextField, subTextField, contentTextView, sampleButton].forEach {
             self.addSubview($0)
         }
     }
@@ -92,6 +95,11 @@ class MainView: BaseView {
             make.leadingMargin.equalTo(20)
             make.trailingMargin.equalTo(-20)
             make.bottom.equalTo(self.safeAreaLayoutGuide)
+        }
+        
+        sampleButton.snp.makeConstraints { make in
+            make.width.height.equalTo(50)
+            make.trailing.top.equalTo(self.safeAreaLayoutGuide)
         }
     }
 }
