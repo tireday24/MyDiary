@@ -20,9 +20,9 @@ class MainView: BaseView {
     let diaryImageButton = UIButton().then {
         $0.layer.cornerRadius = 20
         $0.layer.borderColor = UIColor.black.cgColor
-        $0.backgroundColor = .black
+        $0.backgroundColor = .systemBlue
         $0.layer.borderWidth = 1
-        $0.setTitle("Search", for: .normal)
+        $0.setImage(UIImage(systemName: "photo"), for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = UIFont(name: "systemFont" ,size: 14)
     }

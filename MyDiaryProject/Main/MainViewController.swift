@@ -8,6 +8,7 @@
 import UIKit
 import MyDairyProjectFrameWork
 import RealmSwift // Realm 1번
+import PhotosUI
 
 import SnapKit
 import Then
@@ -18,6 +19,25 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
     let mainView = MainView()
     let localRealm = try! Realm() //Realm 2번 Realm 테이블에 데이터를 CRUD할 때 Realm 테이블 경로에 접근하는 코드
     var imageURL : String?
+    
+    lazy var imagePicker: UIImagePickerController = {
+        let view = UIImagePickerController()
+        view.delegate = self
+        return view
+    }()
+    
+    let configuration: PHPickerConfiguration = {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 0
+        return configuration
+    }()
+    
+    lazy var picker: PHPickerViewController = {
+        let view = PHPickerViewController(configuration: configuration)
+        view.delegate = self
+        return view
+    }()
     
     override func loadView() {
         self.view = mainView
@@ -71,10 +91,19 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
 //    }
     
     @objc func moreActionTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "방법을 정해주세요!", message: "", preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title: "카메라로 촬영하기", style: .default, handler: { _ in})
-        let galleryAction = UIAlertAction(title: "사진 가져오기", style: .default, handler: { _ in})
+        let cameraAction = UIAlertAction(title: "카메라로 촬영하기", style: .default, handler: { _ in
+            guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+                return
+            }
+            self.imagePicker.sourceType = .camera
+            self.imagePicker.allowsEditing = true
+            self.present(self.picker, animated: true)
+        })
+        let galleryAction = UIAlertAction(title: "사진 가져오기", style: .default, handler: { _ in
+            self.present(self.picker, animated: true)
+        })
         let searchAction = UIAlertAction(title: "사진 검색하기", style: .default, handler: { _ in
             self.transitionViewController(storyboard: "Main", vc: SearchViewController(), transition: .present) { _ in}})
         
@@ -84,8 +113,39 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
         
         self.present(alert, animated: true, completion: nil)
     }
+
+}
+
+extension MainViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.mainView.diaryImageView.image = image
+            dismiss(animated: true)
+        }
+    }
     
-    //Realm Create Sample Realm 3번
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+    }
+}
+
+extension MainViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                DispatchQueue.main.async {
+                    self.mainView.diaryImageView.image = image as? UIImage
+                }
+            }
+        }
+    }
+}
+
+//Realm Create Sample Realm 3번
 //    @objc func samplebuttonClicked() {
 //
 //        //mainView.titleTextfield.text 이런식으로 들어감
@@ -98,8 +158,3 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
 //        }
 //    }
 //
-    
-
-    
-    
-}
