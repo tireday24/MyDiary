@@ -43,8 +43,8 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
     }
     
     override func configure() {
-        mainView.diaryImageButton.addTarget(self, action: #selector(diaryImageButtonClicked), for: .touchUpInside)
-      
+        mainView.diaryImageButton.addTarget(self, action: #selector(moreActionTapped), for: .touchUpInside)
+        
     }
     
     @objc func backButtonClicked() {
@@ -52,7 +52,7 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
     }
     
     @objc func saveButtonClikced() {
-        let task = UserDiary(diaryTitle: "가오늘의 일기\(Int.random(in: 1...1000))", diaryContent: "일기 테스트 내용", diaryDate: Date(), regdate: Date(), photo: imageURL) // => Record를 하나 추가한다(테이블에서 일자로 보이는 줄)
+        let task = UserDiary(diaryTitle: mainView.imgaeTextField.text ?? "없음", diaryContent: mainView.subTextField.text ?? "없음", diaryDate: Date(), regdate: Date(), photo: imageURL) // => Record를 하나 추가한다(테이블에서 일자로 보이는 줄)
         
         try! localRealm.write {
             localRealm.add(task) //여기서 Create가 일어난다 왜 try? 조금 더 안전하게 데이터를 저장 추가 가져오기 위함
@@ -64,10 +64,25 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func diaryImageButtonClicked() {
-        transitionViewController(storyboard: "Main", vc: SearchViewController(), transition: .present) { _ in
-            
-        }
+//    @objc func diaryImageButtonClicked() {
+//        transitionViewController(storyboard: "Main", vc: SearchViewController(), transition: .present) { _ in
+//
+//        }
+//    }
+    
+    @objc func moreActionTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "카메라로 촬영하기", style: .default, handler: { _ in})
+        let galleryAction = UIAlertAction(title: "사진 가져오기", style: .default, handler: { _ in})
+        let searchAction = UIAlertAction(title: "사진 검색하기", style: .default, handler: { _ in
+            self.transitionViewController(storyboard: "Main", vc: SearchViewController(), transition: .present) { _ in}})
+        
+        alert.addAction(cameraAction)
+        alert.addAction(galleryAction)
+        alert.addAction(searchAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     //Realm Create Sample Realm 3번
