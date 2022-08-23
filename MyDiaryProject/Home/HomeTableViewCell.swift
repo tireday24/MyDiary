@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Kingfisher
+
 class HomeTableViewCell: BaseTableViewCell {
     
     let diaryImageView: DiaryImageView = {
@@ -56,6 +58,9 @@ class HomeTableViewCell: BaseTableViewCell {
         titleLabel.text = data.diaryTitle
         dateLabel.text = data.diaryDate.formatted()
         contentLabel.text = data.diaryContent
+        let url = URL(string: data.photo ?? "데이터 없음")
+        diaryImageView.kf.setImage(with: url)
+        diaryImageView.contentMode = .scaleToFill
     }
     
     override func configure() {

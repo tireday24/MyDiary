@@ -17,6 +17,7 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
     
     let mainView = MainView()
     let localRealm = try! Realm() //Realm 2번 Realm 테이블에 데이터를 CRUD할 때 Realm 테이블 경로에 접근하는 코드
+    var imageURL : String?
     
     override func loadView() {
         self.view = mainView
@@ -36,7 +37,9 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
     @objc func searchImageNotificationObserver(notification: NSNotification) {
         if let image = notification.userInfo?["image"] as? String {
             self.mainView.diaryImageView.kf.setImage(with: URL(string: image))
+            imageURL = image
         }
+        
     }
     
     override func configure() {
@@ -49,7 +52,7 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
     }
     
     @objc func saveButtonClikced() {
-        let task = UserDiary(diaryTitle: "가오늘의 일기\(Int.random(in: 1...1000))", diaryContent: "일기 테스트 내용", diaryDate: Date(), regdate: Date(), photo: nil) // => Record를 하나 추가한다(테이블에서 일자로 보이는 줄)
+        let task = UserDiary(diaryTitle: "가오늘의 일기\(Int.random(in: 1...1000))", diaryContent: "일기 테스트 내용", diaryDate: Date(), regdate: Date(), photo: imageURL) // => Record를 하나 추가한다(테이블에서 일자로 보이는 줄)
         
         try! localRealm.write {
             localRealm.add(task) //여기서 Create가 일어난다 왜 try? 조금 더 안전하게 데이터를 저장 추가 가져오기 위함
