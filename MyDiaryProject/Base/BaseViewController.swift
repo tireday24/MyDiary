@@ -15,6 +15,7 @@ class BaseViewController: UIViewController {
         view.backgroundColor = .white
         configure()
         tapGesture()
+        setConstraints()
     }
     
     //Configure
@@ -22,6 +23,9 @@ class BaseViewController: UIViewController {
         
     }
     
+    func setConstraints() {
+        
+    }
     func tapGesture() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         tapGestureRecognizer.cancelsTouchesInView = false

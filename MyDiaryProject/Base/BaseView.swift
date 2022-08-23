@@ -21,7 +21,7 @@ class BaseView: UIView {
     
     //configure
     func configureUI() {
-        
+        self.backgroundColor = Constants.BaseColor.background
     }
     
     //constraint

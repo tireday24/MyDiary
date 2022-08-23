@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		811B213028B0431C009A9297 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811B212F28B0431C009A9297 /* BaseCollectionViewCell.swift */; };
 		8166F02A28B1A13E00E61B30 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166F02928B1A13E00E61B30 /* TextField.swift */; };
+		8176E05C28B460A200388FB2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176E05B28B460A200388FB2 /* HomeTableViewCell.swift */; };
+		8176E06028B460CE00388FB2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176E05F28B460CE00388FB2 /* BaseTableViewCell.swift */; };
+		8176E06228B4614200388FB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176E06128B4614200388FB2 /* Constants.swift */; };
+		8176E06428B4616B00388FB2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176E06328B4616B00388FB2 /* Color.swift */; };
+		8176E06628B4619700388FB2 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176E06528B4619700388FB2 /* ImageView.swift */; };
 		818B444828AF663E007C50DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B444728AF663E007C50DF /* AppDelegate.swift */; };
 		818B444A28AF663E007C50DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B444928AF663E007C50DF /* SceneDelegate.swift */; };
 		818B444C28AF663E007C50DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B444B28AF663E007C50DF /* ViewController.swift */; };
@@ -75,6 +80,11 @@
 /* Begin PBXFileReference section */
 		811B212F28B0431C009A9297 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		8166F02928B1A13E00E61B30 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		8176E05B28B460A200388FB2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		8176E05F28B460CE00388FB2 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		8176E06128B4614200388FB2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8176E06328B4616B00388FB2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		8176E06528B4619700388FB2 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		818B444428AF663E007C50DF /* MyDiaryProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDiaryProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		818B444728AF663E007C50DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		818B444928AF663E007C50DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				8166F02928B1A13E00E61B30 /* TextField.swift */,
+				8176E06128B4614200388FB2 /* Constants.swift */,
+				8176E06328B4616B00388FB2 /* Color.swift */,
+				8176E06528B4619700388FB2 /* ImageView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -185,6 +198,7 @@
 				818B445C28AF6659007C50DF /* BaseViewController.swift */,
 				818B445E28AF6661007C50DF /* BaseView.swift */,
 				811B212F28B0431C009A9297 /* BaseCollectionViewCell.swift */,
+				8176E05F28B460CE00388FB2 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -244,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				81C3208F28B32A9C00AD562A /* HomeViewController.swift */,
+				8176E05B28B460A200388FB2 /* HomeTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -369,10 +384,15 @@
 				8166F02A28B1A13E00E61B30 /* TextField.swift in Sources */,
 				818B449228AFC2D6007C50DF /* SearchCollectionViewCell.swift in Sources */,
 				81C3209028B32A9C00AD562A /* HomeViewController.swift in Sources */,
+				8176E06628B4619700388FB2 /* ImageView.swift in Sources */,
+				8176E05C28B460A200388FB2 /* HomeTableViewCell.swift in Sources */,
 				818B446828AF66DC007C50DF /* SearchView.swift in Sources */,
+				8176E06028B460CE00388FB2 /* BaseTableViewCell.swift in Sources */,
 				818B446328AF6691007C50DF /* APIKEY.swift in Sources */,
 				818B448C28AF9D96007C50DF /* APIManager.swift in Sources */,
+				8176E06228B4614200388FB2 /* Constants.swift in Sources */,
 				818B446B28AF66FB007C50DF /* MainViewController.swift in Sources */,
+				8176E06428B4616B00388FB2 /* Color.swift in Sources */,
 				818B444C28AF663E007C50DF /* ViewController.swift in Sources */,
 				818B445D28AF6659007C50DF /* BaseViewController.swift in Sources */,
 				818B445F28AF6661007C50DF /* BaseView.swift in Sources */,

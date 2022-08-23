@@ -14,7 +14,8 @@ import Then
 
 
 class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDelegate {
-    var mainView = MainView()
+    
+    let mainView = MainView()
     let localRealm = try! Realm() //Realm 2번 Realm 테이블에 데이터를 CRUD할 때 Realm 테이블 경로에 접근하는 코드
     
     override func loadView() {
@@ -23,7 +24,9 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(backButtonClicked))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClikced))
+      
         NotificationCenter.default.addObserver(self, selector: #selector(searchImageNotificationObserver(notification:)), name: .searchImage, object: nil)
         print("Realm is located at:", localRealm.configuration.fileURL!)
     }
@@ -38,7 +41,24 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
     
     override func configure() {
         mainView.diaryImageButton.addTarget(self, action: #selector(diaryImageButtonClicked), for: .touchUpInside)
-        mainView.sampleButton.addTarget(self, action: #selector(samplebuttonClicked), for: .touchUpInside)
+      
+    }
+    
+    @objc func backButtonClicked() {
+        
+    }
+    
+    @objc func saveButtonClikced() {
+        let task = UserDiary(diaryTitle: "가오늘의 일기\(Int.random(in: 1...1000))", diaryContent: "일기 테스트 내용", diaryDate: Date(), regdate: Date(), photo: nil) // => Record를 하나 추가한다(테이블에서 일자로 보이는 줄)
+        
+        try! localRealm.write {
+            localRealm.add(task) //여기서 Create가 일어난다 왜 try? 조금 더 안전하게 데이터를 저장 추가 가져오기 위함
+            print("Realm Succeed")
+            dismiss(animated: true)
+        }
+        
+        let vc = HomeViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func diaryImageButtonClicked() {
@@ -48,18 +68,18 @@ class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDel
     }
     
     //Realm Create Sample Realm 3번
-    @objc func samplebuttonClicked() {
-        
-        //mainView.titleTextfield.text 이런식으로 들어감
-        let task = UserDiary(diaryTitle: "하오늘의 일기\(Int.random(in: 1...1000))", diaryContent: "일기 테스트 내용", diaryDate: Date(), regdate: Date(), photo: nil) // => Record를 하나 추가한다(테이블에서 일자로 보이는 줄)
-        
-        try! localRealm.write {
-            localRealm.add(task) //여기서 Create가 일어난다 왜 try? 조금 더 안전하게 데이터를 저장 추가 가져오기 위함
-            print("Realm Succeed")
-            dismiss(animated: true)
-        }
-    }
-    
+//    @objc func samplebuttonClicked() {
+//
+//        //mainView.titleTextfield.text 이런식으로 들어감
+//        let task = UserDiary(diaryTitle: "가오늘의 일기\(Int.random(in: 1...1000))", diaryContent: "일기 테스트 내용", diaryDate: Date(), regdate: Date(), photo: nil) // => Record를 하나 추가한다(테이블에서 일자로 보이는 줄)
+//
+//        try! localRealm.write {
+//            localRealm.add(task) //여기서 Create가 일어난다 왜 try? 조금 더 안전하게 데이터를 저장 추가 가져오기 위함
+//            print("Realm Succeed")
+//            dismiss(animated: true)
+//        }
+//    }
+//
     
 
     
