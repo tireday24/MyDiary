@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		811B213028B0431C009A9297 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811B212F28B0431C009A9297 /* BaseCollectionViewCell.swift */; };
+		8147FFA828B65EDC00553432 /* BackUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147FFA728B65EDC00553432 /* BackUpTableViewCell.swift */; };
+		8147FFAA28B65EE600553432 /* BackUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147FFA928B65EE600553432 /* BackUpViewController.swift */; };
+		8147FFAC28B6616700553432 /* BackUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147FFAB28B6616700553432 /* BackUpView.swift */; };
+		8147FFAE28B661E900553432 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147FFAD28B661E900553432 /* Button.swift */; };
 		8166F02A28B1A13E00E61B30 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166F02928B1A13E00E61B30 /* TextField.swift */; };
 		8176E05C28B460A200388FB2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176E05B28B460A200388FB2 /* HomeTableViewCell.swift */; };
 		8176E06028B460CE00388FB2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176E05F28B460CE00388FB2 /* BaseTableViewCell.swift */; };
@@ -80,6 +84,10 @@
 
 /* Begin PBXFileReference section */
 		811B212F28B0431C009A9297 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		8147FFA728B65EDC00553432 /* BackUpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpTableViewCell.swift; sourceTree = "<group>"; };
+		8147FFA928B65EE600553432 /* BackUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpViewController.swift; sourceTree = "<group>"; };
+		8147FFAB28B6616700553432 /* BackUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpView.swift; sourceTree = "<group>"; };
+		8147FFAD28B661E900553432 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		8166F02928B1A13E00E61B30 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		8176E05B28B460A200388FB2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		8176E05F28B460CE00388FB2 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -142,6 +150,16 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		8147FFA428B65EC900553432 /* BackUp */ = {
+			isa = PBXGroup;
+			children = (
+				8147FFA928B65EE600553432 /* BackUpViewController.swift */,
+				8147FFAB28B6616700553432 /* BackUpView.swift */,
+				8147FFA728B65EDC00553432 /* BackUpTableViewCell.swift */,
+			);
+			path = BackUp;
+			sourceTree = "<group>";
+		};
 		8166F02628B1A12F00E61B30 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +167,7 @@
 				8176E06528B4619700388FB2 /* ImageView.swift */,
 				8166F02928B1A13E00E61B30 /* TextField.swift */,
 				8176E06328B4616B00388FB2 /* Color.swift */,
+				8147FFAD28B661E900553432 /* Button.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -178,6 +197,7 @@
 		818B444628AF663E007C50DF /* MyDiaryProject */ = {
 			isa = PBXGroup;
 			children = (
+				8147FFA428B65EC900553432 /* BackUp */,
 				81C3208E28B32A8600AD562A /* Home */,
 				818B445B28AF6644007C50DF /* Base */,
 				818B446928AF66E7007C50DF /* Main */,
@@ -386,7 +406,10 @@
 				818B446628AF66D3007C50DF /* SearchViewController.swift in Sources */,
 				81C51D6128B5D26700305D47 /* FileManager + Extension.swift in Sources */,
 				8166F02A28B1A13E00E61B30 /* TextField.swift in Sources */,
+				8147FFAC28B6616700553432 /* BackUpView.swift in Sources */,
 				818B449228AFC2D6007C50DF /* SearchCollectionViewCell.swift in Sources */,
+				8147FFAE28B661E900553432 /* Button.swift in Sources */,
+				8147FFAA28B65EE600553432 /* BackUpViewController.swift in Sources */,
 				81C3209028B32A9C00AD562A /* HomeViewController.swift in Sources */,
 				8176E06628B4619700388FB2 /* ImageView.swift in Sources */,
 				8176E05C28B460A200388FB2 /* HomeTableViewCell.swift in Sources */,
@@ -402,6 +425,7 @@
 				818B445F28AF6661007C50DF /* BaseView.swift in Sources */,
 				81C3208D28B319E000AD562A /* RealmModel.swift in Sources */,
 				818B444828AF663E007C50DF /* AppDelegate.swift in Sources */,
+				8147FFA828B65EDC00553432 /* BackUpTableViewCell.swift in Sources */,
 				811B213028B0431C009A9297 /* BaseCollectionViewCell.swift in Sources */,
 				818BC43628B0A04000C590A8 /* ReuseIdentifier.swift in Sources */,
 				818B444A28AF663E007C50DF /* SceneDelegate.swift in Sources */,

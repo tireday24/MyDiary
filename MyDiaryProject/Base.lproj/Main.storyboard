@@ -54,6 +54,21 @@
             </objects>
             <point key="canvasLocation" x="1802.8985507246377" y="76.339285714285708"/>
         </scene>
+        <!--Back Up View Controller-->
+        <scene sceneID="xfH-QU-RHm">
+            <objects>
+                <viewController storyboardIdentifier="BackUpViewController" id="iEn-1q-otd" customClass="BackUpViewController" customModule="MyDiaryProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rGa-zw-Crd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aow-Le-Ze7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KMc-AT-KMk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2843" y="77"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="487-Z5-oU5">
             <objects>
