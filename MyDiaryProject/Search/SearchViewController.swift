@@ -15,12 +15,20 @@ import Kingfisher
 
 
 class SearchViewController: BaseViewController {
+    
+    //0824 프로토콜을 통한 값 전달 2.값 전달 받을 변수 하나 선언
+    var delegate: SelectImageDelegate?
+    
     var mainView = SearchView()
     
     let hud = JGProgressHUD()
     var searchImageList: [String] = []
     
     var selectImage: String = ""
+    //이미지 자체 값전달 1.
+    var searchImage: UIImage?
+    
+    var selectIndexPath: IndexPath?
     
     var startPage = 1
     var totalCount = 0
@@ -31,13 +39,14 @@ class SearchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func configure() {
         let navi = navigationItem
         navi.title = "이미지를 선택해주세요!"
         navi.rightBarButtonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(selectButtonClicked))
-        navi.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(backButtonClicked))
+        navi.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(backButtonClicked))
         
         mainView.imageCollectionView.delegate = self
         mainView.imageCollectionView.dataSource = self
@@ -47,14 +56,28 @@ class SearchViewController: BaseViewController {
         
         mainView.imageSearchBar.delegate = self
         
+        //서버 통신 interaction 막음, 로딩되는 시점을 알아야한다
+        //view.isUserInteractionEnabled = false
+        //mainView.imageCollectionView.isUserInteractionEnabled = false
         
+        //백업 복구 할 때 못 넘어가게 막아야함
     }
     
+    
+    
     @objc func selectButtonClicked() {
+        // 옵셔널 해제 버튼 눌렀을 때 이미지 넘기기 2.
+        guard let searchImage = searchImage else {
+            //선택 안했을 때 얼럿 띄우기, 선택 누르지 못하게 disable 설정 토스트가 더 적합하다(확인을 꼭 누르게 할 필요가 없기 때문에)
+            showAlert(title: "사진을 선택해주세요", button: "확인")
+            return
+        }
         
-        NotificationCenter.default.post(name: .searchImage, object: nil, userInfo: ["image": selectImage])
+        delegate?.sendImageData(image: searchImage)
         
-        dismiss(animated: true)
+        //NotificationCenter.default.post(name: .searchImage, object: nil, userInfo: ["image": selectImage])
+        
+       dismiss(animated: true)
         
     }
     
@@ -85,6 +108,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell()}
         
+        cell.layer.borderWidth = selectIndexPath == indexPath ? 4 : 0
+        cell.layer.borderColor = selectIndexPath == indexPath ? Constants.BaseColor.point.cgColor : nil
+        
         let url = URL(string: searchImageList[indexPath.item])
         cell.searchImageView.kf.setImage(with: url)
         
@@ -92,7 +118,25 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectImage = searchImageList[indexPath.item]
+        //선택 된 이미지를 전달 3.
+        //어떤 셀인지 어떤 이미지를 가지고 올 지 어떻게 알까? -> indexPath item 활용
+        //테그는 기본적으로 Int만 uiimage를 받을 수 없다
+        //UICollectionview 요소라 타입캐스팅 활용해서 작업
+        guard let cell = collectionView.cellForItem(at: indexPath) as? SearchCollectionViewCell else { return }
+        
+        searchImage = cell.searchImageView.image
+        
+        selectIndexPath = indexPath
+        collectionView.reloadData()
+        
+        //selectImage = searchImageList[indexPath.item]
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        selectIndexPath = nil
+        searchImage = nil
+        collectionView.reloadData()
     }
     
     func collectionViewLayout() -> UICollectionViewFlowLayout {
@@ -119,8 +163,7 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
                 hud.show(in: mainView)
                 
                 uploadImage(query: mainView.imageSearchBar.text ?? "cat")
-                
-                
+            
             }
             
         }
@@ -164,6 +207,6 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-extension NSNotification.Name {
-    static let searchImage = NSNotification.Name("searchImage")
-}
+//extension NSNotification.Name {
+//    static let searchImage = NSNotification.Name("searchImage")
+//}

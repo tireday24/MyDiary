@@ -3,7 +3,7 @@
 //  MyDiaryProject
 //
 //  Created by 권민서 on 2022/08/22.
-//
+
 
 import UIKit
 import SnapKit
@@ -68,9 +68,7 @@ class HomeViewController: BaseViewController {
     
     @objc func plusButtonClicked() {
         let vc = MainViewController()
-        navigationController?.pushViewController(vc, animated: true)
-//        vc.modalPresentationStyle = .fullScreen
-//        present(vc, animated: true)
+        transition(vc, trasionStyle: .presentFullScreen)
     }
     
     @objc func sortButtonClicked() {
@@ -88,6 +86,8 @@ class HomeViewController: BaseViewController {
         //.filter("diaryTitle = '가오늘의 일기117'")
     }
     
+   
+    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -99,7 +99,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? HomeTableViewCell else { return UITableViewCell() }
         cell.setData(data: tasks[indexPath.row])
-        
+        cell.diaryImageView.image = loadImageFromDocument(fileName: "\(tasks[indexPath.row].objectId).jpg")
        
         
         return cell

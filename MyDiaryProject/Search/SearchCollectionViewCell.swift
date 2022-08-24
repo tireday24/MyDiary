@@ -13,6 +13,8 @@ class SearchCollectionViewCell: BaseCollectionViewCell {
     
     let searchImageView: UIImageView = {
         let image = UIImageView()
+        image.clipsToBounds = true
+        image.contentMode = .scaleToFill
         return image
     }()
     
@@ -36,15 +38,15 @@ class SearchCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                self.searchImageView.backgroundColor = .systemBlue
-            } else {
-                self.searchImageView.backgroundColor = .white
-            }
-        }
-    }
+//    override var isSelected: Bool {
+//        didSet {
+//            if isSelected {
+//                self.searchImageView.backgroundColor = .systemBlue
+//            } else {
+//                self.searchImageView.backgroundColor = .white
+//            }
+//        }
+//    }
     
 
 }
