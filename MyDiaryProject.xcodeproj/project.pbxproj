@@ -44,6 +44,7 @@
 		818BC43128B09BC500C590A8 /* MyDairyProjectFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818BC42D28B09BB800C590A8 /* MyDairyProjectFrameWork.framework */; };
 		818BC43228B09BC500C590A8 /* MyDairyProjectFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 818BC42D28B09BB800C590A8 /* MyDairyProjectFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		818BC43628B0A04000C590A8 /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818BC43528B0A04000C590A8 /* ReuseIdentifier.swift */; };
+		81B19F8828B701620074717A /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 81B19F8728B701620074717A /* Zip */; };
 		81C3208628B3168500AD562A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 81C3208528B3168500AD562A /* Realm */; };
 		81C3208828B3168500AD562A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 81C3208728B3168500AD562A /* RealmSwift */; };
 		81C3208D28B319E000AD562A /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3208C28B319E000AD562A /* RealmModel.swift */; };
@@ -129,6 +130,7 @@
 				818B447428AF684D007C50DF /* Kingfisher in Frameworks */,
 				818B447A28AF6866007C50DF /* SwiftyJSON in Frameworks */,
 				818BC43128B09BC500C590A8 /* MyDairyProjectFrameWork.framework in Frameworks */,
+				81B19F8828B701620074717A /* Zip in Frameworks */,
 				818B448328AF6BF4007C50DF /* Then in Frameworks */,
 				81C3208628B3168500AD562A /* Realm in Frameworks */,
 				818B448028AF6884007C50DF /* JGProgressHUD in Frameworks */,
@@ -312,6 +314,7 @@
 				818B448228AF6BF4007C50DF /* Then */,
 				81C3208528B3168500AD562A /* Realm */,
 				81C3208728B3168500AD562A /* RealmSwift */,
+				81B19F8728B701620074717A /* Zip */,
 			);
 			productName = MyDiaryProject;
 			productReference = 818B444428AF663E007C50DF /* MyDiaryProject.app */;
@@ -349,6 +352,7 @@
 				818B447E28AF6884007C50DF /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				818B448128AF6BF4007C50DF /* XCRemoteSwiftPackageReference "Then" */,
 				81C3208428B3168500AD562A /* XCRemoteSwiftPackageReference "realm-swift" */,
+				81B19F8628B701620074717A /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = 818B444528AF663E007C50DF /* Products */;
 			projectDirPath = "";
@@ -698,6 +702,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		81B19F8628B701620074717A /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		81C3208428B3168500AD562A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -738,6 +750,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 818B448128AF6BF4007C50DF /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		81B19F8728B701620074717A /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81B19F8628B701620074717A /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 		81C3208528B3168500AD562A /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;

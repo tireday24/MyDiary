@@ -8,6 +8,12 @@
 import UIKit
 
 extension UIViewController {
+    
+    func documentDirectoryPath() -> URL? {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil } //Document 경로
+        
+        return documentDirectory
+    }
     //이미 이미지 없이 저장한 것들이 있을 수 있어서
     func loadImageFromDocument(fileName: String) -> UIImage? {
         //Document 경로 요소를 가져옴(first) 경로 가져오는 코드 안될 수 있으니까 체크(guard) 찍어보면 앱 껐다킬때마다 경로 바뀜 document 파일까지 온거임
@@ -51,6 +57,30 @@ extension UIViewController {
             try data.write(to: fileURL)
         } catch let error {
             print("file save error", error)
+        }
+        
+    }
+    
+    func fetchDocumentZipFile() {
+        
+        do {
+            guard let path = documentDirectoryPath() else { return }
+            
+            //추가 정보 얻는 곳 Including
+            let docs = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+            print("docs: \(docs)")
+            
+            //pathExtension => 확장자
+            let zip = docs.filter{ $0.pathExtension == "zip"}
+            print("zip: \(zip)")
+            
+            //매개변수로 빼서 테이블뷰로 옮겨줘도 됨
+            let result = zip.map { $0.lastPathComponent}
+            print("result: \(result)")
+            
+            
+        } catch {
+            print("Error")
         }
         
     }

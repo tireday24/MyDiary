@@ -16,6 +16,7 @@ class BaseViewController: UIViewController {
         configure()
         tapGesture()
         setConstraints()
+        
     }
     
     //Configure
@@ -37,7 +38,7 @@ class BaseViewController: UIViewController {
     }
     
     //Alert
-    func showAlert(title: String, button: String) {
+    func showAlert(title: String, button: String = "확인") { //매개변수 기본값
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         let ok = UIAlertAction(title: button, style: .cancel)
         alert.addAction(ok)

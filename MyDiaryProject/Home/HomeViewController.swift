@@ -35,6 +35,8 @@ class HomeViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        fetchDocumentZipFile()
          
     }
      
@@ -56,7 +58,8 @@ class HomeViewController: BaseViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(plusButtonClicked))
         let sortButton = UIBarButtonItem(title: "정렬", style: .plain, target: self, action: #selector(sortButtonClicked))
         let filterButton = UIBarButtonItem(title: "필터", style: .plain, target: self, action: #selector(filterButtonClicked))
-        navigationItem.leftBarButtonItems = [sortButton, filterButton]
+        let backupButton = UIBarButtonItem(title: "백업", style: .plain, target: self, action: #selector(backupButtonClicked))
+        navigationItem.leftBarButtonItems = [sortButton, filterButton, backupButton]
 
     }
     
@@ -64,6 +67,11 @@ class HomeViewController: BaseViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    @objc func backupButtonClicked() {
+        let vc = BackUpViewController()
+        transition(vc, trasionStyle: .push)
     }
     
     @objc func plusButtonClicked() {
