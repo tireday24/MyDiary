@@ -17,7 +17,8 @@ protocol SelectImageDelegate {
     func  sendImageData(image: UIImage)
 }
 
-class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDelegate {
+//더이상 상속 하지 않는 class 앞에 final 성능이 좋아짐(최적화)
+final class MainViewController: BaseViewController, UITextViewDelegate, UITextFieldDelegate {
     
     let mainView = MainView()
     let localRealm = try! Realm() //Realm 2번 Realm 테이블에 데이터를 CRUD할 때 Realm 테이블 경로에 접근하는 코드

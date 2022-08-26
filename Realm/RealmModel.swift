@@ -11,6 +11,7 @@ import RealmSwift
 //UserDiary: table이름
 //@Persisted: Column
 //Object Realm 만들어질때 필요한거구나
+//테이블 정리할 때 필요한 코드
 class UserDiary: Object {
     @Persisted var diaryTitle: String //제목(필수)
     @Persisted var diaryContent: String?//내용(옵션)

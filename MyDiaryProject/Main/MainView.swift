@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MainView: BaseView {
+final class MainView: BaseView {
     
     let diaryImageView = UIImageView().then {
         $0.backgroundColor = .clear

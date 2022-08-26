@@ -31,17 +31,17 @@ extension UIViewController {
         
     }
     
-    func removeImageFromDocument(fileName: String) {
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        //경로를 더 해줌 세부 파일 경로 이미지를 저장할 위치
-        let fileURL = documentDirectory.appendingPathComponent(fileName)
-        
-        do {
-            try FileManager.default.removeItem(at: fileURL)
-        } catch let error {
-            print(error) //얼럿
-        }
-    }
+//    func removeImageFromDocument(fileName: String) {
+//        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+//        //경로를 더 해줌 세부 파일 경로 이미지를 저장할 위치
+//        let fileURL = documentDirectory.appendingPathComponent(fileName)
+//        
+//        do {
+//            try FileManager.default.removeItem(at: fileURL)
+//        } catch let error {
+//            print(error) //얼럿
+//        }
+//    }
     
     //fileManager 활용 싱글톤 패턴으로 이루어져 있음
     func saveImageToDocument(fileName: String, image: UIImage) {
@@ -61,6 +61,7 @@ extension UIViewController {
         
     }
     
+    
     func fetchDocumentZipFile() {
         
         do {
@@ -77,7 +78,6 @@ extension UIViewController {
             //매개변수로 빼서 테이블뷰로 옮겨줘도 됨
             let result = zip.map { $0.lastPathComponent}
             print("result: \(result)")
-            
             
         } catch {
             print("Error")

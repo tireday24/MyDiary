@@ -20,13 +20,10 @@ class BaseViewController: UIViewController {
     }
     
     //Configure
-    func configure() {
-        
-    }
+    func configure() {}
     
-    func setConstraints() {
-        
-    }
+    func setConstraints() {}
+    
     func tapGesture() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         tapGestureRecognizer.cancelsTouchesInView = false
